@@ -39,7 +39,6 @@ startOutSLURM <- function(config = NULL,
 
   exitCode <- system(paste0("sbatch --job-name=",
                               title,
-                              " --output=log.txt",
                               " --mail-type=END",
                               " --comment=BRICK",
                               " --wrap=\"Rscript ../brickClusterstart/startOutside.R",
