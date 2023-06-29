@@ -21,7 +21,8 @@ startOutSLURM <- function(config = NULL,
   cfg <- readConfig(config)
 
   if (tasks32) {
-    slurmConfig <- "--qos=short --nodes=1 --tasks-per-node=32 --constraint=broadwell"
+    slurmConfig <- paste("--qos=short --nodes=1 --tasks-per-node=32",
+                          "--constraint=broadwell --time=01:00:00")
   } else {
     slurmConfig <- "--qos=priority --nodes=1 --tasks-per-node=16"
   }
