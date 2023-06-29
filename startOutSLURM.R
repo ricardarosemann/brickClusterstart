@@ -15,11 +15,15 @@ load_all("../brick")
 
 startOutSLURM <- function(config = NULL,
                        path = NULL,
-                       outputFolder = "output") {
+                       outputFolder = "output", tasks32 = FALSE) {
 
   cfg <- readConfig(config)
 
-  slurmConfig <- "--qos=priority --nodes=1 --tasks-per-node=16"
+  if (tasks32) {
+    slurmConfig <- "--qos=short --nodes=1 --tasks-per-node=32 --constraint=broadwell"
+  } else {
+    slurmConfig <- "--qos=priority --nodes=1 --tasks-per-node=16"
+  }
   title <- cfg[["title"]]
 
   argString <- ""
