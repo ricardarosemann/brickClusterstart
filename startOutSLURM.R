@@ -7,6 +7,7 @@
 #' @param config run configurations
 #' @param path character vector with folders to run the model in
 #' @param outputFolder directory of output folder
+#' @param tasks32 whether run should use 32 parallel tasks
 #' @export
 #'
 library(devtools)
